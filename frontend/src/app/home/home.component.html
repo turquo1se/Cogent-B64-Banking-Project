@@ -1,0 +1,28 @@
+<div class="container main-content mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-6 text-center">
+        <img src="/assets/images/bank-logo.png" class="img-fluid" alt="Bank Logo">
+      </div>
+      <div class="col-md-5">
+        <form style="height: 500px;" (submit)="onSubmit(loginForm)" #loginForm="ngForm">
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username" [(ngModel)]="loginRequest.username" required style="height: 50px; font-size: 24px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="loginRequest.password" required style="height: 50px; font-size: 24px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <a href="#">Forgot Password?</a>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" style="height: 50px; font-size: 24px;">Login</button>
+            </div>
+          </form>          
+        <div class="form-group" style="margin-top: -190px">
+          <p>Not a customer? <a routerLink="/customer-registration">Register Here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>

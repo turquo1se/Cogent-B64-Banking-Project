@@ -1,0 +1,87 @@
+<div class="container main-content mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-6 text-center">
+        <img src="/assets/images/bank-logo.png" class="img-fluid" alt="Bank Logo">
+      </div>
+      <div class="col-md-5">
+        <form [formGroup]="registerForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input formControlName="username" type="text" class="form-control" id="username" [(ngModel)]="request.username" required>
+                <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                    <div class="text-danger" *ngIf="f.username.errors!.required">
+                        Username is required.
+                    </div>
+                    <div class="text-danger" *ngIf="f.username.errors!.minlength">
+                        Username must be at least 3 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="f.username.errors!.maxlength">
+                        Username cannot be more than 30 characters long.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="password" [(ngModel)]="request.password" required>
+                <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                    <div class="text-danger" *ngIf="f.password.errors!.required">
+                        Password is required.
+                    </div>
+                    <div class="text-danger" *ngIf="f.password.errors!.minlength">
+                        Password must be at least 8 characters long.
+                    </div>
+                    <div class="text-danger" *ngIf="f.password.errors!.maxlength">
+                        Password cannot be more than 50 characters long.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input formControlName="confirmPassword" type="password" class="form-control" id="confirm-password" required>
+                <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                    <div class="text-danger" *ngIf="f.confirmPassword.errors!.required">
+                        Confirm Password is required.
+                    </div>
+                    <div class="text-danger" *ngIf="registerForm.hasError('passwordMismatch')">
+                        Passwords must match.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="security-question">Security Question</label>
+                <select formControlName="secretQuestion" class="form-control" id="security-question" [(ngModel)]="request.secretQuestion" required>
+                    <option value="">-- Select a security question --</option>
+                    <option value="1">What is your mother's maiden name?</option>
+                    <option value="2">What is your favorite book?</option>
+                    <option value="3">What is the name of your first pet?</option>
+                    <option value="4">What is the name of the city where you were born?</option>
+                    <option value="5">What is your favorite movie?</option>
+                </select>
+                <div class="text-danger" *ngIf="f.secretQuestion.invalid && (f.secretQuestion.dirty || f.secretQuestion.touched)">
+                    Security Question is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="secretAnswer">Answer</label>
+                <input formControlName="secretAnswer" type="text" class="form-control" id="security-answer" name="security-answer" [(ngModel)]="request.secretAnswer" required>
+                <div class="text-danger" *ngIf="f.secretAnswer.invalid && (f.secretAnswer.dirty || f.secretAnswer.touched)">
+                    Security Answer is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)=addCustomer()>Register</button>
+            </div>
+        </form>
+        <!-- success message -->
+        <div *ngIf="showSuccessMessage" class="alert alert-success mt-3">
+            Registered Successfully!
+        <button type="button" class="btn btn-success ml-3" (click)="navigateToHome()">Back to Login</button>
+        </div>
+        <!-- Error message-->
+        <div *ngIf="showErrorMessage" class="alert alert-danger">
+            Username is taken. Try again!
+            <button class="btn btn-danger ml-2" (click)="showErrorMessage = false">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

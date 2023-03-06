@@ -1,0 +1,13 @@
+.home-content {
+    margin-top: 100px;
+    text-align: center;
+  }
+  
+  .login-area {
+    display: inline-block;
+  }
+  
+  .login-area img {
+    display: inline-block;
+    margin-right: 10px; /* add some spacing between the image and the input fields */
+  }

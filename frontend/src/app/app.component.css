@@ -1,0 +1,5 @@
+/* Add margin bottom to content above footer */
+.main-content {
+    min-height: calc(100vh - 120px);
+    margin-bottom: 200px; /* height of the footer */
+}

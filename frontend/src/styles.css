@@ -1,0 +1,9 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
