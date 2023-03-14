@@ -1,0 +1,17 @@
+.list-group {
+    height: 100%;
+}
+  
+  .card {
+    margin-bottom: 20px;
+    width: 500px;
+    height: 98%;
+  }
+  
+  .card-header {
+    font-weight: bold;
+  }
+  
+  .btn-success {
+    margin-top: 20px;
+  }

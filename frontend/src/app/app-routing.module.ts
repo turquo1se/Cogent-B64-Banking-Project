@@ -4,12 +4,14 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'customer-registration', component: CustomerRegistrationComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'create-account', component: CreateAccountComponent}
+  {path: 'create-account', component: CreateAccountComponent},
+  {path: 'beneficiary', component: BeneficiaryComponent}
 ];
 
 @NgModule({

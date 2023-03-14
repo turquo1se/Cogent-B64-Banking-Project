@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
     FooterComponent,
     CustomerRegistrationComponent,
     DashboardComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    BeneficiaryComponent
   ],
   imports: [
     BrowserModule,

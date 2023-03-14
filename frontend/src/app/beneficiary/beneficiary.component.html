@@ -3,8 +3,8 @@
       <div class="col-md-3">
         <div class="list-group">
           <a routerLink="/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
-          <a routerLink="/create-account" class="list-group-item list-group-item-action active">Create Account</a>
-          <a routerLink="/beneficiary" class="list-group-item list-group-item-action">Add Beneficiary</a>
+          <a routerLink="/create-account" class="list-group-item list-group-item-action">Create Account</a>
+          <a routerLink="/beneficiary" class="list-group-item list-group-item-action active">Add Beneficiary</a>
           <a href="#" class="list-group-item list-group-item-action">Remove Beneficiary</a>
           <a href="#" class="list-group-item list-group-item-action">Transfer Money</a>
           <a href="#" class="list-group-item list-group-item-action">View Statement</a>
@@ -13,13 +13,17 @@
       <div class="col-md-9">
         <div class="card">
           <div class="card-header">
-            <b>Create Account</b>
+            <b>Add Beneficiary</b>
           </div>
           <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="initialDeposit">Enter Initial Deposit:</label>
-                <input type="text" class="form-control" id="initialDeposit" placeholder="Enter Initial Deposit">
+            <form [formGroup]="beneficiaryForm"> 
+              <div class="form-group" >
+                <label for="accountNumber"></label>
+                <input type="text" class="form-control" id="accountNumber1" placeholder="Enter Account Number" ng-model="accReg">
+                <label for="accountNumber"></label>
+                <input type="text" class="form-control" id="accountNumber2" placeholder="Confirm Account" ng-model="accReg2" ng-pattern="accReg">
+                
+                <hr/>
               </div>
               <div class="form-group">
                 <label for="accountType">Select Type of Account:</label>
@@ -28,7 +32,7 @@
                     <option>Checking Account</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success" (click)=addBeneficiary()>Submit</button>
             </form>
           </div>
         </div>
