@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 60px;">
+  <div class="container-fluid">
+    <ng-container *ngIf="!isLoggedIn()">
+      <a class="navbar-brand" routerLink="/">Home</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/staff-login">Staff Corner</a>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn() && isCustomer()">
+      <a class="navbar-brand" routerLink="/dashboard">Dashboard</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customer-profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Welcome {{ getUsername() }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" style="color: #ff4122">Log Out</a>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn() && isStaff()">
+      <a class="navbar-brand" routerLink="/staff">Dashboard</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/staff-transfer">Transfer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Welcome {{ getUsername() }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" style="color: #ff4122">Log Out</a>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+</nav>
