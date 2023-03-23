@@ -33,6 +33,7 @@ export class BeneficiaryComponent implements OnInit {
     if(this.beneficiaryForm.valid) {
       
       this._userService.addBeneficiary(this.request).subscribe();
+      window.alert(["Submitted"]);
     }
   }
   

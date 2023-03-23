@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { LoginRequest } from '../model/LoginRequest';
 import { RegisterRequest } from '../model/RegisterRequest';
 import { AddBeneficiaryRequest } from 'app/model/AddBeneficiaryRequest';
+import { GetBeneficiaryRequest } from 'app/model/GetBeneficiaryRequest';
+import { Transaction } from 'app/model/Transaction';
+import { Statement } from 'app/model/Statement';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +26,18 @@ export class UserService {
 
   addBeneficiary(req: AddBeneficiaryRequest): Observable<HttpResponse<any>>{
     return this.http.post('TO DO', req, {observe: 'response'});
+  }
+
+  getBeneficiary(req: GetBeneficiaryRequest): Observable<HttpResponse<any>>{
+    return this.http.post("TO DO", req, {observe: 'response'});  // need work
+  }
+
+  makeTransaction(req: Transaction): Observable<HttpResponse<any>>{
+    return this.http.post("TO DO", req, {observe: 'response'});
+  }
+
+  getStatement(req: Statement): Observable<HttpResponse<any>>{
+    return this.http.post("TO DO", req, {observe: 'response'});
   }
 
 

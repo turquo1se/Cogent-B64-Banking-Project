@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
+import { RemoveBeneficiaryComponent } from './remove-beneficiary/remove-beneficiary.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { StatementComponent } from './statement/statement.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
     CustomerRegistrationComponent,
     DashboardComponent,
     CreateAccountComponent,
-    BeneficiaryComponent
+    BeneficiaryComponent,
+    RemoveBeneficiaryComponent,
+    TransactionComponent,
+    StatementComponent
   ],
   imports: [
     BrowserModule,
