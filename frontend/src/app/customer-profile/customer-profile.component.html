@@ -1,33 +1,25 @@
 <div class="container">
     <h1>Customer Profile</h1>
-    <form (submit)="onSubmit()">
+    <form #customerForm="ngForm" (submit)="onSubmit(customerForm)">
       <div class="form-group">
         <label for="customerId">Customer ID</label>
-        <textarea id="customerId" class="form-control" readonly>{{customerId}}</textarea>
+        <textarea id="customerId" class="form-control" readonly>{{customer.customerId}}</textarea>
       </div>
       <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" class="form-control" [(ngModel)]="fullName" name="fullName">
+        <input type="text" id="fullName" class="form-control" [(ngModel)]="customer.fullname" name="fullname">
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="text" id="phone" class="form-control" [(ngModel)]="phone" name="phone">
+        <input type="text" id="phone" class="form-control" [(ngModel)]="customer.phone" name="phone">
       </div>
       <div class="form-group">
         <label for="pan">PAN</label>
-        <input type="text" id="pan" class="form-control" [(ngModel)]="pan" name="pan">
+        <input type="text" id="pan" class="form-control" [(ngModel)]="customer.pan" name="pan">
       </div>
       <div class="form-group">
         <label for="aadhar">AADHAR</label>
-        <input type="text" id="aadhar" class="form-control" [(ngModel)]="aadhar" name="aadhar">
-      </div>
-      <div class="form-group">
-        <label for="panFile">Upload Pan</label>
-        <input type="file" id="panFile" name="panFile" (change)="onPanFileSelected($event)">
-      </div>
-      <div class="form-group">
-        <label for="aadharFile">Upload AADHAR</label>
-        <input type="file" id="aadharFile" name="aadharFile" (change)="onAadharFileSelected($event)">
+        <input type="text" id="aadhar" class="form-control" [(ngModel)]="customer.aadhar" name="aadhar">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Update</button>

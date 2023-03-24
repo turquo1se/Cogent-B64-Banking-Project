@@ -31,6 +31,7 @@ export class StaffLoginComponent {
         this.router.navigate(['/staff']);
       }, (error: any) =>{
         console.log("Error");
+        alert('Error logging in as staff. Check the credentials.');
       });
     }
   }

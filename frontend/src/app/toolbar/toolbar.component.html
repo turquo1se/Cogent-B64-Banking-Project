@@ -36,5 +36,16 @@
         </li>
       </ul>
     </ng-container>
+    <ng-container *ngIf="isLoggedIn() && isAdmin()">
+      <a class="navbar-brand" routerLink="/admin">Dashboard</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link">Super Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" style="color: #ff4122">Log Out</a>
+        </li>
+      </ul>
+    </ng-container>
   </div>
 </nav>

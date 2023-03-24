@@ -21,4 +21,10 @@ export class AccountService {
 
     return this.http.post<Account>(url, body, { observe: 'response'});
   }
+
+  getAccount(accNumber: number):Observable<HttpResponse<Account>>{
+    const url = `http://localhost:9898/api/staff/account/${accNumber}`;
+
+    return this.http.get<Account>(url, { observe: 'response'});
+  }
 }

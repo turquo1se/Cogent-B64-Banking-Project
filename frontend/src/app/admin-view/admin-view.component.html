@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="button-group bg-light shadow-lg">
+      <button mat-raised-button color="primary" (click)="showStaffRegistration=true">Create Staff</button>
+      <button mat-raised-button color="primary" (click)="onViewStaffClick()">View Staff</button>
+    </div>
+
+    <div *ngIf="showStaffRegistration" class="container main-content mt-5">
+    <form [formGroup]="registerForm" class="border rounded p-3">
+        <div class="form-group">
+            <label for="username">Enter Staff Name</label>
+            <input formControlName="fullname" type="text" class="form-control" id="fullname" [(ngModel)]="request.fullName" required>
+            <div *ngIf="f.fullname.invalid && (f.fullname.dirty || f.fullname.touched)">
+                <div class="text-danger" *ngIf="f.username.errors!.required">
+                    Staff name is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Enter Staff Username</label>
+            <input formControlName="username" type="text" class="form-control" id="username" [(ngModel)]="request.username" required>
+            <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+                <div class="text-danger" *ngIf="f.username.errors!.required">
+                    Username is required.
+                </div>
+                <div class="text-danger" *ngIf="f.username.errors!.minlength">
+                    Username must be at least 3 characters long.
+                </div>
+                <div class="text-danger" *ngIf="f.username.errors!.maxlength">
+                    Username cannot be more than 30 characters long.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Enter Secure Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" [(ngModel)]="request.password" required>
+            <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+                <div class="text-danger" *ngIf="f.password.errors!.required">
+                    Password is required.
+                </div>
+                <div class="text-danger" *ngIf="f.password.errors!.minlength">
+                    Password must be at least 8 characters long.
+                </div>
+                <div class="text-danger" *ngIf="f.password.errors!.maxlength">
+                    Password cannot be more than 50 characters long.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Re Enter Password</label>
+            <input formControlName="confirmPassword" type="password" class="form-control" id="confirm-password" required>
+            <div *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)">
+                <div class="text-danger" *ngIf="f.confirmPassword.errors!.required">
+                    Confirm Password is required.
+                </div>
+                <div class="text-danger" *ngIf="registerForm.hasError('passwordMismatch')">
+                    Passwords must match.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" (click)="addStaff()">Create</button>
+        </div>
+    </form>
+    <!-- success message -->
+    <div *ngIf="showSuccessMessage" class="alert alert-success mt-3">
+        Registered Successfully!
+    <button type="button" class="btn btn-success ml-3" (click)="showSuccessMessage = false">Close</button>
+    </div>
+    <!-- Error message-->
+    <div *ngIf="showErrorMessage" class="alert alert-danger">
+        Username is taken. Try again!
+        <button class="btn btn-danger ml-2" (click)="showErrorMessage = false">Close</button>
+    </div>
+    </div>
+
+    <div *ngIf="!showStaffRegistration" class="account-details">
+        <table>
+          <thead>
+            <tr>
+              <th>Staff ID</th>
+              <th>Staff Name</th>
+              <th>Enable/Disable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of staff">
+              <td>{{s.staffId}}</td>
+              <td>{{s.staffFullname}}</td>
+              <td>
+                <label class="switch">
+                    <input type="checkbox" checked >
+                    <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>

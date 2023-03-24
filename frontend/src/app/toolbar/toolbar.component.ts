@@ -22,6 +22,10 @@ export class ToolbarComponent {
     return localStorage.getItem('roles') == ERole.ROLE_STAFF;
   }
 
+  isAdmin(){
+    return localStorage.getItem('roles') == ERole.ROLE_ADMIN;
+  }
+
   getUsername() {
     return localStorage.getItem('username');
   }

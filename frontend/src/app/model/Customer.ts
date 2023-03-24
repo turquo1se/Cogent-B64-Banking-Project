@@ -1,7 +1,7 @@
 import { User } from "./User";
 
 export interface Customer {
-    customerId?: number;
+    customerId: number;
     user: User;
     fullname: string;
     phone: string;
@@ -9,6 +9,10 @@ export interface Customer {
     aadhar: string;
     secretQuestion: number;
     secretAnswer: string;
-    pan2?: File;
-    aadhar2?: File;
+    status: Status;
+}
+
+export enum Status{
+    ENABLE = "ENABLE",
+    DISABLE = "DISABLE"
 }

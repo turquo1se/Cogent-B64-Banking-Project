@@ -1,1 +1,59 @@
-<p>staff-view works!</p>
+<div class="container">
+    <div class="button-group bg-light shadow-lg">
+      <button mat-raised-button color="primary" (click)="showAccountDetails=true">By Account Number</button>
+      <button mat-raised-button color="primary">Approve Beneficiary</button>
+      <button mat-raised-button color="primary" (click)="onEnableOrBlockCustomerClick()">Enable/Block Customer</button>
+    </div>
+  
+    <div *ngIf="showAccountDetails">
+        <div class="search-area">
+            <input type="text" placeholder="Enter Account Number" class="account-input" #accInput>
+            <button mat-raised-button color="primary" class="go-button" (click)="onGoButtonClick(accInput.value)">Go</button>
+        </div>
+  
+        <div *ngIf="account" class="account-details" >
+            <table>
+            <tr>
+                <td>Account Number:</td>
+                <td>{{account.accNumber}}</td>
+            </tr>
+            <tr>
+                <td>Account Type:</td>
+                <td>{{account.accType}}</td>
+            </tr>
+            <tr>
+                <td>Account Balance:</td>
+                <td>{{account.accBalance}}</td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>{{ account.status }}</td>
+            </tr>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="!showAccountDetails" class="account-details">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Customer ID</th>
+              <th>Enable/Disable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{customer.user.username}}</td>
+              <td>{{customer.customerId}}</td>
+              <td>
+                <label class="switch">
+                    <input type="checkbox" (change)="onToggleChange(customer)" [checked] = "customer.status === 'ENABLE'">
+                    <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  

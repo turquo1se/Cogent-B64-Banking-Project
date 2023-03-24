@@ -14,6 +14,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { StaffLoginComponent } from './staff-login/staff-login.component';
 import { StaffViewComponent } from './staff-view/staff-view.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { StaffViewComponent } from './staff-view/staff-view.component';
     CreateAccountComponent,
     CustomerProfileComponent,
     StaffLoginComponent,
-    StaffViewComponent
+    StaffViewComponent,
+    AdminLoginComponent,
+    AdminViewComponent
   ],
   imports: [
     BrowserModule,

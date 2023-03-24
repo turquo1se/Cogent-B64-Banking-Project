@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="card p-5 bg-light shadow-lg">
+      <h3 class="mb-4">Login as Admin</h3>
+      <form (submit)="onSubmit(loginForm)" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="loginRequest.username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="loginRequest.password">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
+      </form>
+    </div>
+</div>
